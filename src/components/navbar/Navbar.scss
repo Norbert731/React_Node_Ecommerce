@@ -4,9 +4,24 @@
   justify-content: center;
   align-items: center;
   background-color: #f5f5f5;
+  transition: all 0.5s ease;
+  position: sticky;
+  top: 0;
 
   hr {
     border-bottom: 1px #ffbb1c solid;
+  }
+
+  &.active {
+    background-color: #ffbb1c;
+
+    .container {
+      .logo {
+        .brackets {
+          color: #000;
+        }
+      }
+    }
   }
 
   .container {
@@ -31,6 +46,20 @@
       align-items: center;
       font-weight: 500;
       gap: 20px;
+
+      .user {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        img {
+          --size: 32px;
+          width: var(--size);
+          height: var(--size);
+          border-radius: 50%;
+          object-fit: cover;
+        }
+      }
 
       button {
         background-color: transparent;
