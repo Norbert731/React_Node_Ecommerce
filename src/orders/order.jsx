@@ -1,8 +1,8 @@
 import "./order.scss";
 import React from "react";
 
-function order() {
-  return <div>order</div>;
+function Order() {
+  return <div>Order</div>;
 }
 
-export default order;
+export default Order;

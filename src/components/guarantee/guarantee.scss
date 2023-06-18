@@ -1,0 +1,20 @@
+.guarantee {
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 10px;
+    font-weight: 700;
+
+    .guarantee-title {
+      font-size: 20px;
+    }
+
+    .guarantee-card {
+      background-color: #ffbb1c;
+      margin: 0 10px;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+  }
+}

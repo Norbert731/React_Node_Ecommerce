@@ -1,0 +1,16 @@
+.extended-desc {
+  display: flex;
+  justify-content: center;
+
+  .container {
+    width: 1400px;
+
+    h2 {
+      padding: 5px 0;
+    }
+
+    p {
+      padding: 5px 0;
+    }
+  }
+}

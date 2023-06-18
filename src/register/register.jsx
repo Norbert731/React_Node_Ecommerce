@@ -1,8 +1,8 @@
 import "./register.scss";
 import React from "react";
 
-function register() {
-  return <div>register</div>;
+function Register() {
+  return <div>Register</div>;
 }
 
-export default register;
+export default Register;

@@ -1,0 +1,23 @@
+.reslider {
+  display: flex;
+  justify-content: center;
+  padding: 120px 0;
+  .container {
+    width: 1400px;
+    .carousel-item {
+      display: flex;
+      justify-content: center;
+    }
+
+    .carousel-prev,
+    .carousel-next {
+      background-color: #ffbb1c;
+      color: #fff;
+      height: 40px;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+  }
+}

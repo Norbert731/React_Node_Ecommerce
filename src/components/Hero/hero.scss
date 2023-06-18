@@ -1,0 +1,65 @@
+.hero {
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  background-color: #ffbb1c;
+  .container {
+    width: 1400px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: center;
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+
+      h1 {
+        font-size: 40px;
+      }
+
+      .search {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #fff;
+        border-radius: 5px;
+
+        .searchInput {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          img {
+            --size: 20px;
+            width: var(--size);
+            height: var(--size);
+            margin: 10px;
+          }
+
+          input {
+            border: inherit;
+            outline: inherit;
+          }
+        }
+
+        .searchBtn {
+          width: 120px;
+          height: 50px;
+          border: inherit;
+          background-color: #fce092;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .right {
+      display: flex;
+      justify-content: right;
+      img {
+        width: 90%;
+      }
+    }
+  }
+}
