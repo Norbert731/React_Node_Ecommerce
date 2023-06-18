@@ -5,7 +5,7 @@ import { AllMeals } from "../../data";
 
 function MealCard({ meal }) {
   return (
-    <Link to="/" className="default-link">
+    <Link to="/Meal" className="default-link">
       <div className="mealcard">
         <img src={meal.img} alt="obrazek z jedzeniem" />
         <div className="info">

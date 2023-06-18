@@ -1,0 +1,28 @@
+.meal {
+  display: flex;
+  justify-content: center;
+
+  .container {
+    width: 1400px;
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      img {
+        width: 80%;
+        height: 500px;
+        object-fit: cover;
+      }
+
+      .stars {
+        img {
+          --size: 14px;
+          width: var(--size);
+          height: var(--size);
+        }
+      }
+    }
+  }
+}
