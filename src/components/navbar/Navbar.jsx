@@ -51,15 +51,15 @@ function Navbar() {
                 <div className="options">
                   {currentUser?.isAdmin && (
                     <>
-                      <Link className="default-link" to="/add">
-                        Add new gig
-                      </Link>
-                      <Link className="default-link" to="/myGigs">
-                        Gigs
+                      <Link className="default-link" to="/addMeal">
+                        Add new meal
                       </Link>
                     </>
                   )}
                   {/* <span>Ulubione</span> */}
+                  <Link className="default-link" to="/myMeal">
+                    Meals
+                  </Link>
                   <Link className="default-link" to="/orders">
                     <span>Zamówienia</span>
                   </Link>
