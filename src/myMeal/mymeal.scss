@@ -1,4 +1,54 @@
 .mymeal {
+  display: flex;
+  justify-content: center;
+
   .container {
+    width: 1400px;
+    padding: 50px 0;
+
+    .title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .addBtn {
+        background-color: #ffbb1c;
+        padding: 10px 25px;
+        border-radius: 5px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+    }
+
+    table {
+      width: 100%;
+
+      tr {
+        height: 50px;
+
+        &:nth-child(even) {
+          background-color: #ffbb1c;
+        }
+
+        th {
+          text-align: left;
+        }
+
+        td {
+          img {
+            width: 50px;
+            height: 25px;
+            object-fit: cover;
+          }
+
+          .trash {
+            width: 50px;
+            height: 25px;
+            object-fit: contain;
+            cursor: pointer;
+          }
+        }
+      }
+    }
   }
 }

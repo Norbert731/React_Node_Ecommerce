@@ -50,7 +50,7 @@ function App() {
           element: <Meal />,
         },
         {
-          path: "/MyMeal",
+          path: "/myMeal",
           element: <MyMeal />,
         },
         {
