@@ -9,6 +9,7 @@ import Orders from "./orders/Order";
 import Messages from "./messages/Messages";
 import Message from "./message/Message";
 import MyMeal from "./myMeal/MyMeal";
+import Login from "./login/Login";
 import "./app.scss";
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
@@ -60,6 +61,10 @@ function App() {
         {
           path: "/message/:id",
           element: <Message />,
+        },
+        {
+          path: "/login",
+          element: <Login />,
         },
       ],
     },

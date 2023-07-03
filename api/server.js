@@ -6,6 +6,8 @@ import mealRouter from "./routes/meal.route.js";
 import orderRouter from "./routes/order.route.js";
 import reviewsRouter from "./routes/reviews.route.js";
 import authenticationRouter from "./routes/authentication.route.js";
+import cookieParser from "cookie-parser";
+import cors from "cors";
 
 const app = express();
 
@@ -21,7 +23,9 @@ async function connectDB() {
   }
 }
 
+app.use(cors({ origin: "http://127.0.0.1:5173", credential: true }));
 app.use(express.json());
+app.use(cookieParser());
 
 app.use("/api/authentication", authenticationRouter);
 app.use("/api/user", userRouter);
@@ -29,7 +33,7 @@ app.use("/api/order", orderRouter);
 app.use("/api/meal", mealRouter);
 app.use("/api/reviews", reviewsRouter);
 
-// start app
+// app start
 app.listen(8800, () => {
   connectDB();
   console.log("backend server is running");
