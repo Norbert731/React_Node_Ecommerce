@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./Navbar.scss";
-import { Link, isRouteErrorResponse, useLocation } from "react-router-dom";
+import {
+  Link,
+  isRouteErrorResponse,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
+import req from "../../utils/req";
 
 function Navbar() {
   const [active, setActive] = useState(false);
@@ -20,10 +26,18 @@ function Navbar() {
     };
   }, []);
 
-  const currentUser = {
-    id: 1,
-    username: "Joe Doe",
-    isAdmin: true,
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+  const nav = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await req.post("authentication/logout");
+      localStorage.setItem("currentUser", null);
+      nav("/");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -37,13 +51,17 @@ function Navbar() {
           </Link>
         </div>
         <div className="links">
-          <span>Przepisy</span>
+          <span>Dania</span>
           {!currentUser && <span>Korzyści dołączenia</span>}
-          {!currentUser && <button>Login</button>}
+          {!currentUser && (
+            <Link to="/login">
+              <button>Zaloguj</button>
+            </Link>
+          )}
           {currentUser && (
             <div className="user" onClick={() => setOptionBtn(!optionBtn)}>
               <img
-                src="https://images.unsplash.com/photo-1633412802994-5c058f151b66?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=580&q=80"
+                src={currentUser.img || "/img/default-avatar.png"}
                 alt="logo"
               ></img>
               <span>{currentUser?.username}</span>
@@ -51,22 +69,21 @@ function Navbar() {
                 <div className="options">
                   {currentUser?.isAdmin && (
                     <>
+                      <Link className="default-link" to="/myMeal">
+                        Meals
+                      </Link>
                       <Link className="default-link" to="/addMeal">
-                        Add new meal
+                        Dodaj danie
                       </Link>
                     </>
                   )}
-                  {/* <span>Ulubione</span> */}
-                  <Link className="default-link" to="/myMeal">
-                    Meals
-                  </Link>
                   <Link className="default-link" to="/orders">
                     <span>Zamówienia</span>
                   </Link>
                   <Link className="default-link" to="/messages">
                     <span>Wiadomości</span>
                   </Link>
-                  <Link className="default-link" to="/">
+                  <Link className="default-link" onClick={handleLogout}>
                     <span>Wyloguj</span>
                   </Link>
                 </div>
@@ -75,25 +92,6 @@ function Navbar() {
           )}
         </div>
       </div>
-      {(active || pathname !== "/") && (
-        <>
-          <hr></hr>
-          <div className="menu">
-            <Link to="/" className="default-link">
-              Category
-            </Link>
-            <Link to="/" className="default-link">
-              Category
-            </Link>
-            <Link to="/" className="default-link">
-              Category
-            </Link>
-            <Link to="/" className="default-link">
-              Category
-            </Link>
-          </div>
-        </>
-      )}
     </div>
   );
 }

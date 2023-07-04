@@ -10,6 +10,7 @@ import Messages from "./messages/Messages";
 import Message from "./message/Message";
 import MyMeal from "./myMeal/MyMeal";
 import Login from "./login/Login";
+import Register from "./register/Register";
 import "./app.scss";
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
@@ -65,6 +66,10 @@ function App() {
         {
           path: "/login",
           element: <Login />,
+        },
+        {
+          path: "/register",
+          element: <Register />,
         },
       ],
     },
