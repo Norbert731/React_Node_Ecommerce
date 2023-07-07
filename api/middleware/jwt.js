@@ -1,12 +1,17 @@
 import jwt from "jsonwebtoken";
 
-export const jwtToken = (req, res) => {
+export const jwtToken = (req, res, next) => {
   const token = req.cookies.userToken;
-  if (!token) return res.status(401).send("Problem z autentykacją");
+  if (!token) {
+    return res.status(401).send("Problem z autentykacją");
+  }
 
   jwt.verify(token, process.env.JWT, async (error, payload) => {
-    if (error) return res.status(403).send("Problem z autentykacją");
+    if (error) {
+      return res.status(403).send("Problem z autentykacją");
+    }
     req.userId = payload.id;
     req.isAdmin = payload.isAdmin;
+    next();
   });
 };

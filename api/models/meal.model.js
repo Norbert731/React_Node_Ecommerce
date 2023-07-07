@@ -5,23 +5,20 @@ const mealSchema = new Schema(
   {
     userId: {
       type: String,
-      required,
+      required: true,
     },
-    mealId: {
-      type: String,
-      required,
-    },
+
     name: {
       type: String,
-      required,
+      required: true,
     },
     img: {
       type: String,
-      required,
+      required: true,
     },
     desc: {
       type: String,
-      required,
+      required: false,
     },
     rating: {
       type: Number,
@@ -33,15 +30,15 @@ const mealSchema = new Schema(
     },
     category: {
       type: String,
-      required,
+      required: true,
     },
     price: {
       type: Number,
-      required,
+      required: true,
     },
   },
   {
-    timestamps,
+    timestamps: true,
   }
 );
 
