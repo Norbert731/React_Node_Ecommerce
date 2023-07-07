@@ -5,7 +5,5 @@ import { jwtToken } from "../middleware/jwt.js";
 const router = express.Router();
 
 router.delete("/:id", jwtToken, deleteUser);
-//router.get("/register");
-//router.get("/login");
 
 export default router;
